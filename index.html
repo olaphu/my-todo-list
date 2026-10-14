@@ -22,7 +22,17 @@
           <input id="todo-input" type="text" maxlength="200" placeholder="接下來，想完成什麼？" autocomplete="off" required>
           <button class="add-button" type="submit">＋ 新增</button>
         </div>
+        <div class="task-options">
+          <div><label for="category">分類</label><select id="category"><option>工作</option><option selected>生活</option><option>學習</option></select></div>
+          <div><label for="priority">優先順序</label><select id="priority"><option>高</option><option selected>中</option><option>低</option></select></div>
+          <div><label for="due-date">截止日期（選填）</label><input id="due-date" type="date"></div>
+        </div>
       </form>
+      <div class="progress-summary">
+        <p id="progress-text" aria-live="polite">已完成 0 / 0 項 · 0%</p>
+        <progress id="progress" max="100" value="0" aria-label="全部任務完成進度"></progress>
+      </div>
+      <div class="filter-row"><label for="category-filter">依分類篩選</label><select id="category-filter"><option value="全部">全部</option><option>工作</option><option>生活</option><option>學習</option></select></div>
       <div class="list-heading"><h2>你的清單</h2><span id="count">0 項待完成</span></div>
       <ul id="todo-list" aria-label="待辦清單"></ul>
       <div id="empty-state"><span class="empty-icon" aria-hidden="true">✓</span><h3>今天，從一件小事開始</h3><p>新增第一項待辦，慢慢完成你的計畫。</p></div>
