@@ -36,3 +36,21 @@ h3 { font-size: 16px; font-weight: 500; margin: 18px 0 10px; }
 #status.error { color: #a64232; }
 footer { text-align: center; font-size: 12px; color: #7b877f; line-height: 1.8; padding: 24px 0; }
 @media (max-width: 480px) { .app { width: calc(100% - 32px); padding-top: 44px; } .panel { padding: 22px 18px; border-radius: 20px; } .add-button { padding: 0 14px; } .subtitle { font-size: 14px; } }
+
+.task-options { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 12px; margin-top: 18px; }
+.task-options > div { min-width: 0; }
+select, input[type="date"] { width: 100%; min-width: 0; min-height: 44px; padding: 10px; border: 1px solid #dde4db; border-radius: 10px; background: #f7f8f5; color: inherit; font: inherit; font-size: 14px; }
+.progress-summary { margin: 26px 0; }
+#progress-text { font-size: 14px; }
+progress { width: 100%; height: 10px; accent-color: #365e48; }
+.filter-row { display: flex; align-items: center; gap: 14px; }
+.filter-row label { margin: 0; white-space: nowrap; }
+.filter-row select { width: auto; flex: 1; }
+.todo-content { flex: 1; min-width: 0; }
+.task-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0 33px; font-size: 12px; }
+.badge { padding: 3px 8px; border-radius: 6px; background: #edf1ed; color: #536657; }
+.priority-high { background: #fce8e5; color: #92372a; }
+.priority-medium { background: #fff2d5; color: #795615; }
+.priority-low { background: #e7effb; color: #365780; }
+.overdue { color: #a13428; font-weight: 600; }
+@media (max-width: 480px) { .task-options { grid-template-columns: 1fr 1fr; } .task-options > div:last-child { grid-column: 1 / -1; } }
