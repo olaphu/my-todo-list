@@ -54,3 +54,16 @@ progress { width: 100%; height: 10px; accent-color: #365e48; }
 .priority-low { background: #e7effb; color: #365780; }
 .overdue { color: #a13428; font-weight: 600; }
 @media (max-width: 480px) { .task-options { grid-template-columns: 1fr 1fr; } .task-options > div:last-child { grid-column: 1 / -1; } }
+
+.auth-panel, .import-panel { margin-bottom: 22px; }
+.auth-panel h2, .import-panel h2 { margin-bottom: 14px; }
+.auth-panel p, .import-panel p, #mode-label { font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+.auth-panel input { width: 100%; min-width: 0; padding: 12px; border: 1px solid #dde4db; border-radius: 10px; font: inherit; margin-bottom: 14px; }
+.auth-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.auth-actions button, .import-panel button { border: 1px solid #ccd9ce; border-radius: 10px; padding: 11px 16px; background: #eef3ec; color: #365e48; min-height: 44px; }
+button:disabled { opacity: .55; cursor: wait; }
+#import-preview { max-height: 220px; overflow: auto; }
+#import-preview li { font-size: 13px; padding: 8px 0; border-bottom: 1px solid #edf0e9; overflow-wrap: anywhere; }
+.import-consent { display: flex; gap: 10px; align-items: start; margin: 18px 0; line-height: 1.8; }
+.import-consent input { flex-shrink: 0; margin-top: 5px; }
+.error { color: #a64232; }

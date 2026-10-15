@@ -6,6 +6,9 @@
   <meta name="theme-color" content="#f5f4ef">
   <title>我的待辦清單</title>
   <link rel="stylesheet" href="style.css">
+  <script src="supabase-config.js" defer></script>
+  <script src="supabase-client.js" defer></script>
+  <script src="task-store.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -15,7 +18,28 @@
       <h1>我的待辦清單<span class="heading-dot">。</span></h1>
       <p class="subtitle">把想做的事記下來，留點空間給生活。</p>
     </header>
+    <section class="panel auth-panel" aria-label="會員帳號">
+      <h2>會員帳號</h2>
+      <p id="auth-status" role="status">正在檢查登入狀態，本機清單仍可查看。</p>
+      <form id="auth-form">
+        <label for="email">Email</label><input id="email" type="email" autocomplete="email" required>
+        <label for="password">密碼（至少 8 字元）</label><input id="password" type="password" minlength="8" autocomplete="current-password" required>
+        <div class="auth-actions"><button type="submit" id="login">登入</button><button type="submit" id="signup">註冊</button></div>
+      </form>
+      <div class="auth-actions"><button id="logout" type="button" hidden>登出</button><button id="reload-cloud" type="button" hidden>重新載入雲端清單</button></div>
+      <p id="auth-message" role="status" aria-live="polite"></p>
+    </section>
+    <section class="panel import-panel" id="import-panel" aria-label="本機資料匯入" hidden>
+      <h2>尚未匯入的本機清單</h2>
+      <p id="import-summary"></p><ul id="import-preview"></ul>
+      <p>這份資料沒有帳號資訊。請先下載備份，再確認它屬於目前登入的帳號；原始本機清單不會清除。</p>
+      <button id="backup" type="button">下載本機備份</button>
+      <label class="import-consent"><input id="import-consent" type="checkbox"> 我確認預覽中的任務屬於目前帳號，並已完成備份</label>
+      <button id="import-tasks" type="button" disabled>確認匯入目前帳號</button>
+      <p id="import-status" role="status" aria-live="polite"></p>
+    </section>
     <section class="panel" aria-label="待辦事項管理">
+      <p id="mode-label">本機模式 · 資料儲存在這個瀏覽器</p>
       <form id="todo-form">
         <label for="todo-input">新增待辦事項</label>
         <div class="input-row">
@@ -38,7 +62,7 @@
       <div id="empty-state"><span class="empty-icon" aria-hidden="true">✓</span><h3>今天，從一件小事開始</h3><p>新增第一項待辦，慢慢完成你的計畫。</p></div>
       <p id="status" role="status" aria-live="polite"></p>
     </section>
-    <footer>清單儲存在這個瀏覽器，隨時回來繼續。</footer>
+    <footer>未登入使用本機清單；登入後使用個人雲端清單。</footer>
   </main>
 </body>
 </html>
